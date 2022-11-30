@@ -1,0 +1,157 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "welcome-1.html?t=1"
+  },
+  "logoInfo": {
+    "title": "QIAN FENG",
+    "image": "../images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [
+    {
+    "id": 1,
+    "title": "常规管理",
+    "icon": "fa fa-address-book",
+    "href": null,
+    "target": "_self",
+    "parentId": 0,
+    "menuType": 1,
+    "child": [{
+      "id": 3,
+      "title": "主页模板",
+      "icon": "fa fa-home",
+      "href": null,
+      "target": "_self",
+      "parentId": 1,
+      "menuType": 2,
+      "child": [{
+        "id": 9,
+        "title": "主页一",
+        "icon": "fa fa-tachometer",
+        "href": "welcome-1.html",
+        "target": "_self",
+        "parentId": 3,
+        "menuType": 3,
+        "child": []
+      }, {
+        "id": 10,
+        "title": "主页二",
+        "icon": "fa fa-tachometer",
+        "href": "welcome-2.html",
+        "target": "_self",
+        "parentId": 3,
+        "menuType": 3,
+        "child": []
+      }]
+    }, {
+      "id": 4,
+      "title": "基础管理",
+      "icon": "fa fa-calendar",
+      "href": null,
+      "target": "_self",
+      "parentId": 1,
+      "menuType": 2,
+      "child": [{
+        "id": 11,
+        "title": "用户管理",
+        "icon": "fa fa-user-plus",
+        "href": "user.html",
+        "target": "_self",
+        "parentId": 4,
+        "menuType": 3,
+        "child": []
+      }]
+    }, {
+      "id": 5,
+      "title": "菜单管理",
+      "icon": "fa fa-window-maximize",
+      "href": "menu.html",
+      "target": "_self",
+      "parentId": 1,
+      "menuType": 2,
+      "child": []
+    }, {
+      "id": 6,
+      "title": "系统设置",
+      "icon": "fa fa-gears",
+      "href": "setting.html",
+      "target": "_self",
+      "parentId": 1,
+      "menuType": 2,
+      "child": []
+    }, {
+      "id": 7,
+      "title": "表格示例",
+      "icon": "fa fa-file-text",
+      "href": "table.html",
+      "target": "_self",
+      "parentId": 1,
+      "menuType": 2,
+      "child": []
+    }, {
+      "id": 8,
+      "title": "表单示例",
+      "icon": "fa fa-calendar",
+      "href": null,
+      "target": "_self",
+      "parentId": 1,
+      "menuType": 2,
+      "child": [{
+        "id": 12,
+        "title": "普通表单",
+        "icon": "fa fa-list-alt",
+        "href": "form.html",
+        "target": "_self",
+        "parentId": 8,
+        "menuType": 3,
+        "child": []
+      }, {
+        "id": 13,
+        "title": "分步表单",
+        "icon": "fa fa-navicon",
+        "href": "form-step.html",
+        "target": "_self",
+        "parentId": 8,
+        "menuType": 3,
+        "child": []
+      }]
+    }]
+  }, {
+    "id": 2,
+    "title": "组件管理",
+    "icon": "fa fa-lemon-o",
+    "href": null,
+    "target": "_self",
+    "parentId": 0,
+    "menuType": 1,
+    "child": [{
+      "id": 14,
+      "title": "图标列表",
+      "icon": "fa fa-dot-circle-o",
+      "href": "icon.html",
+      "target": "_self",
+      "parentId": 2,
+      "menuType": 2,
+      "child": []
+    }, {
+      "id": 15,
+      "title": "颜色选择",
+      "icon": "fa fa-dashboard",
+      "href": "color-select.html",
+      "target": "_self",
+      "parentId": 2,
+      "menuType": 2,
+      "child": []
+    }, {
+      "id": 16,
+      "title": "省市县区选择器",
+      "icon": "fa fa-rocket",
+      "href": "area.html",
+      "target": "_self",
+      "parentId": 2,
+      "menuType": 2,
+      "child": []
+    }]
+  }]
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.mapper.UserMapper">
+
+    <resultMap id="userResult" type="com.qfedu.pojo.User">
+        <id property="userId" column="userId" ></id>
+        <result property="userName"  column="userName" ></result>
+        <result property="userPwd" column="userPwd"></result>
+        <result property="userAddress" column="userAddress"></result>
+        <result property="userPhone" column="userPhone"></result>
+        <result property="userHead" column="userHead"></result>
+    </resultMap>
+
+    <select id="findUserByUserName" resultMap="userResult">
+        select * from `tb_user` where userName=#{userName}
+    </select>
+
+    <select id="findUserByLimit" resultMap="userResult">
+        select * from `tb_user`
+        <where>
+            <if test="user.userName!=null and user.userName!=''">
+                and userName like concat('%',#{user.userName},'%')
+            </if>
+            <if test="user.userSex!=null and user.userSex!=''">
+                and userSex like concat('%',#{user.userSex},'%')
+            </if>
+            <if test="user.userAddress!=null and user.userAddress!=''">
+                and userAddress like concat('%',#{user.userAddress},'%')
+            </if>
+        </where>
+        limit #{pageNum},#{pageSize}
+    </select>
+
+    <select id="getCount" resultType="long">
+        select count(0) from `tb_user`
+        <where>
+            <if test="user.userName!=null and user.userName!=''">
+                and userName like concat('%',#{user.userName},'%')
+            </if>
+            <if test="user.userSex!=null and user.userSex!=''">
+                and userSex like concat('%',#{user.userSex},'%')
+            </if>
+            <if test="user.userAddress!=null and user.userAddress!=''">
+                and userAddress like concat('%',#{user.userAddress},'%')
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertUser" parameterType="map">
+        insert into `tb_user`(userName,userAddress,userSex,userAge,userPhone,userHead) values(#{userName},#{userAddress},#{userSex},#{userAge},#{userPhone},#{userHead})
+    </insert>
+
+    <delete id="deleteBachUser">
+        delete from `tb_user` where userId in
+        <foreach collection="array" item="v" open="(" separator="," close=")">
+            #{v}
+        </foreach>
+    </delete>
+
+    <update id="updateUserById">
+        update `tb_user`
+        <set>
+            <if test="user.userName!=null and user.userName!=''">
+                userName=#{user.userName},
+            </if>
+            <if test="user.userPhone!=null and user.userPhone!=''">
+                userPhone=#{user.userPhone},
+            </if>
+            <if test="user.userAddress!=null and user.userAddress!=''">
+                userAddress=#{user.userAddress},
+            </if>
+        </set>
+        <where>
+            <if test="user.userId!=null">
+                userId=#{user.userId}
+            </if>
+        </where>
+    </update>
+
+</mapper>
