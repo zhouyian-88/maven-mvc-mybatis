@@ -2,19 +2,25 @@ package com.qfedu.controller;
 
 import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.LineCaptcha;
+import com.qfedu.mini.mvc.annotation.Controller;
+import com.qfedu.mini.mvc.annotation.RequestMapping;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/CaptchaServlet")
-public class CaptchaServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+/**
+ * @athor:zhouhaohui
+ * @email:2873642764@qq.com
+ * @desc:
+ * @datetime:2022-11-30-22:25
+ */
+@Controller
+public class CaptchaController {
+    @RequestMapping("/CaptchaServlet")
+    public void captcha(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         LineCaptcha captcha= CaptchaUtil.createLineCaptcha(100,38,4,20);
@@ -27,10 +33,5 @@ public class CaptchaServlet extends HttpServlet {
         System.out.println(code);
         captcha.write(response.getOutputStream());
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
     }
 }
